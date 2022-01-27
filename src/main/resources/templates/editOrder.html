@@ -1,0 +1,47 @@
+<!--
+- Authors:Patrick Ulmer
+- Class: CST-323
+- Description: Edit Page
+-->
+
+<!--using the create template for all creation  -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+
+      <head>
+         <meta charset="UTF-8">
+         <title>Order edit Form</title>
+      </head>>
+       <div layout:fragment="content">
+      <h1>Edit Order details:</h1>
+      <!--Action is found in our controller, calling the method with the model object to post form fill on next page-->
+      <form th:action="@{editOrder}" th:object="${orderModel}" method="POST">
+      <table>
+      	<input type="hidden" name="id" th:field="*{id}">
+       <tr>  
+         	<td>Order Number:</td><td><input type="text" th:field="*{orderNo}"></td> 
+         </tr>
+         <tr>  
+         	<td>Product Name:</td><td><input type="text" th:field="*{productName}"></td> 
+         </tr>
+         <tr>  
+         	<td>Price:</td><td><input type="text" th:field="*{price}"></td>
+         </tr>
+         <tr>  
+         	<td>Quantity:</td><td><input type="text" th:field="*{quantity}"></td>
+         </tr>
+      	</table>
+      	<input type="submit" value="Submit" />
+      	</br>
+		<!--shows a list of user input errors-->
+		<div th:each="err : ${#fields.errors('*')}">
+		<span th:text="${err}" class="error"></span>
+		  </div>
+      </form>
+      <form th:action="@{deleteOrder}" th:object="${orderModel}" method="POST">
+      	<input type="hidden" name="id" th:field="*{id}">
+      	<input type="submit" name="submit" value="Delete" style="background-color:red; margin-top:10px;" onclick=" return confirm('Are you sure you want to delete this?')">
+      </form>
+      
+      </div>
+   </body>
+</html>

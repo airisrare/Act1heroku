@@ -1,0 +1,29 @@
+.productRow
+{
+	background: radial-gradient(#E0DEE0, #F3F2F3);
+    height:5em; 
+  	background-color: #8ECAE6;
+}
+.productRow:hover
+{
+	cursor:pointer;
+  	height:5em;
+  	background: #FEA100;
+}
+.productRow>td
+{
+	width:25%;	
+}
+.productTable
+{
+	width: 13%;
+}
+.productTable>tbody>tr
+{
+	height: 2em;
+}
+.productTable>tbody>tr>td
+{
+	text-align: center;
+	width:30%;
+}

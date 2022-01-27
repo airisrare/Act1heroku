@@ -1,0 +1,46 @@
+<!--
+- Authors:Patrick Ulmer
+- Class: CST-323
+- Description: Login Page
+-->
+
+<!DOCTYPE html>
+<!--using the create template for all creation  -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+      <head>
+         <meta charset="UTF-8">
+         <title>Order Create Form</title>
+         <link rel="stylesheet" th:href="@{/css sheets/style.css}">
+      	 <div layout:fragment="header"> </div>
+      </head>
+
+   <body>
+    <!-- content of our form will be center and use the commonTemplate -->
+   	  <div layout:fragment="content">
+      <h1 class=".bigHeader">Add your Order Details:</h1>
+      <!--Action is found in our controller, calling the method with the model object to post form fill on next page-->
+      <form th:action="@{/orders/createOrder1}" th:object="${orderModel}" method="POST">
+      <table>
+         <tr>
+          <td>Order Number:</td><td><input type="text" th:field="*{orderNo}"></td><td><h5 class="error" th:if="${#fields.hasErrors('orderNo')}" th:errors="*{orderNo}">Order Number Error</h5></td>
+         </tr>
+          <tr>
+          <td>Product Name:</td><td><input type="text" th:field="*{productName}"></td><td><h5 class="error" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">Product Name Error</h5></td>
+         </tr>
+         <tr>
+          <td>Price:</td><td><input type="text" th:field="*{price}"></td><td><h5 class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">price Error</h5></td>
+         </tr>
+         <tr>
+          <td>Quantity:</td><td><input type="text" th:field="*{quantity}"></td>
+         </tr>
+		 	<td colspan="3"><input type="submit" value="Submit" /></td>
+		 </tr>
+         </form>
+      			</br>
+				<!--shows a list of user input errors-->
+				<div th:each="err : ${#fields.errors('*')}">
+					<span th:text="${err}" class="error"></span>
+				</div>
+   	  </div>
+   </body>
+</html>

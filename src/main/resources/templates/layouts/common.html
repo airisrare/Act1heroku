@@ -1,0 +1,40 @@
+<html xmls:th="http://thymeleaf.org" xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div th:fragment="header">
+	<div align="center">
+	<h1>PattiBoi Clothing</h1>
+</div>
+<div class="bs-example">
+	<nav class="navbar navbar-default">
+	<!--Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+	<a href="/" class="navbar-brand">Pattyboi</a>
+	</div>
+	
+	<div id="navbarCollapse" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+		<li><a href=#>Home</a></li>
+		<li><a href=#>Social Media</a></li>
+		<li><a href=#>About me</a></li>
+		</ul>
+	<ul>
+	</div>
+	</nav>
+</div>
+
+<!--Page Title and Log --> 
+<img th:src="@{\images\pattyboi logo.jpg}" style="width: 25%;"/><br/><br/>
+<h2 th:text="${title}"> Default Message Text</h2><br/>
+</div>
+
+<!--Common Footer Fragment -->
+<div th:fragment="footer">
+	<h5 style="color:black; text-align:center;position:fixed;bottom: 0;width:100%;">Clothing Created by Patrick Ulmer</h5>
+</div>
+</html>
+

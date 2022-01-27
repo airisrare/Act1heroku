@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<!--using the create template for all creation  -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+      <head>
+         <meta charset="UTF-8">
+         <title>View Order</title>
+      </head>
+       <body>
+       <!-- content of our form will be center and use the commonTemplate -->
+     <div layout:fragment="content">
+      <h1>View Order:</h1>
+      <table class="productTable">
+			<tr>
+			<td>Order Number:</td>
+				<td style="text-align: center;" th:text="${order.orderNo}">Order Number</td>
+			</tr>
+			<tr>
+			<td>Product Name:</td>
+				<td style="text-align: center;"th:text="${order.productName}">Product Name</td>
+			</tr>
+			<tr>
+			<td>Price:</td>
+				<td style="text-align: center;"th:text="${order.price}">Price</td>
+			</tr>
+			<tr>
+			<td>Quantity:</td>
+				<td style="text-align: center;"th:text="${order.quantity}">Quantity</td>
+			</tr>
+			
+			</table>
+		  
+      <form action="editOrderPage"> <!-- method="POST" post method not needed?--> 
+      <input type="hidden" name="id" th:value="${order.id}">
+      <input type="submit" name="submit" value="Edit">
+      </form>
+     </div>
+     </body>
+</html>
